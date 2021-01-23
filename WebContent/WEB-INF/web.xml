@@ -1,0 +1,44 @@
+<web-app>
+    <display-name>Guitar Center</display-name>
+     <welcome-file-list>
+    <welcome-file>GC.java</welcome-file>
+   
+  </welcome-file-list>
+ <servlet>
+        <servlet-name>products-servlet</servlet-name>
+        <servlet-class>ShowProductsServlet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>GC</servlet-name>
+        <servlet-class>GC</servlet-class>
+    </servlet>
+    
+    <servlet-mapping>
+        <servlet-name>GC</servlet-name>
+        <url-pattern>/GC</url-pattern>
+    </servlet-mapping>
+      <servlet-mapping>
+        <servlet-name>products-servlet</servlet-name>
+        <url-pattern>/Products</url-pattern>
+    </servlet-mapping>
+    <filter>
+        <filter-name>logging-filter</filter-name>
+        <filter-class>LoggingFilter</filter-class>
+        <init-param>
+            <param-name>prefix</param-name>
+            <param-value>Bananas are tasty</param-value>
+        </init-param>
+    </filter>
+    <filter-mapping>
+        <filter-name>logging-filter</filter-name>
+        <url-pattern>/*</url-pattern>
+    </filter-mapping>
+    <filter>
+        <filter-name>need-permission</filter-name>
+        <filter-class>NeedPermissionFilter</filter-class>
+    </filter>
+    <filter-mapping>
+        <filter-name>need-permission</filter-name>
+        <url-pattern>/access</url-pattern>
+    </filter-mapping>
+</web-app>
