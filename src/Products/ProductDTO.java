@@ -1,21 +1,40 @@
 package Products;
 
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.SQLException;
 
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.Table;
 
+@Table(name = "product")
+@Entity
 public class ProductDTO {
+	 @Column(name = "id")
+	@Id
+    @GeneratedValue(strategy=GenerationType.IDENTITY)
 	  Long id;
+    @Column
 	    String name;
+    @Column
 	    boolean available;
+    
 		public ProductDTO(long id, String name, boolean available) {
 this.id=id;
 this.name=name;
 this.available = available;
 		}
-		   public ProductDTO(String name, boolean available) {
-		        this.name = name;
-		        this.available = available;
+		   public ProductDTO() {
+		  
 		    }
 
+		public ProductDTO(String name2, Boolean isAvailable) {
+			// TODO Auto-generated constructor stub
+		}
 		public Long getId() {
 			return id;
 		}
@@ -43,5 +62,6 @@ this.available = available;
 					", name=" + name + 
 					", available=" + available + "]";
 		}
+	   
 	    
 }

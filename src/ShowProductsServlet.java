@@ -38,11 +38,11 @@ public class ShowProductsServlet extends HttpServlet {
 	        try  {
 	        	long id = Long.parseLong(productId);
 		        
-		        String SELECT_ALL_SQL = "SELECT * FROM info where id = " +id;
+		        String SELECT_ALL_SQL = "SELECT * FROM product where id = " +id;
 		        String name;
 		        boolean avail;
-	        	Connection conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/"
-	        			+ "guitarcenter?createDatabaseIfNotExist=true", "root", "admin");
+	        	Connection conn = DriverManager.getConnection("jdbc:mysql://127.0.0.1:3306/"
+	        			+ "guitarcenter?createDatabaseIfNotExist=true", "root", "Adminis3");
 	        	Statement stmt = conn.createStatement();
 	            ResultSet rs = stmt.executeQuery(SELECT_ALL_SQL);
 	            if (id<=10 && id>0) {
